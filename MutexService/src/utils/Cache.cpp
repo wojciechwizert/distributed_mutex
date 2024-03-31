@@ -19,6 +19,15 @@ Cache::~Cache() {
 }
 
 void Cache::foo() const {
+	struct Costam{
+		int* tmp;
+		Costam() {
+			tmp = new int[100];
+		}
+		~Costam() {
+			delete[] tmp;
+		}
+	} costam;
 	std::string str1 = "costam";
 	int k=100;
 	while(k-->0) {
