@@ -19,9 +19,21 @@ Cache::~Cache() {
 }
 
 void Cache::foo() const {
+	struct Costam{
+		int* tmp;
+		Costam() {
+			tmp = new int[100];
+		}
+		~Costam() {
+			delete[] tmp;
+		}
+	} costam;
 	std::string str1 = "costam";
 	for(int i=0;i<50;++50) {
 		str1+=(str1 + std::to_string(i));
+		for(int j=0;j<50;++j) {
+			str1+=(str1 + std::to_string(i));
+		}
 	}
 	struct Helper{
 		int* tmp;
