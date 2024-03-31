@@ -10,6 +10,7 @@
 
 #include <mutex>
 #include <queue>
+#include <iostream>
 
 // Thread safe implementation of a Queue using an std::queue
 template <typename T>
@@ -21,6 +22,7 @@ public:
 
   bool empty() {
     std::unique_lock<std::mutex> lock(m_mutex);
+    std::cout << "SafeQueue::empty" << std::endl;
     return m_queue.empty();
   }
 
